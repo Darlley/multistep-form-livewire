@@ -24,16 +24,19 @@ class Form extends Component
     public $email;
     public $cep;
     public $setCep;
-
-    public function goToNextPage(){
-        $this->currentPage += 1;
-    }
+    public $count = 0;
+    
     public function goToPreviousPage(){
         $this->currentPage -= 1;
     }
+    public function goToNextPage(){
+        sleep(2);
+        $this->currentPage += 1;
+    }
 
     public function getCep(){
-        $this->setCep = Http::get("viacep.com.br/ws/" . $this->cep . "/json/")->json();
+        $this->count += 1;
+        //$this->setCep = Http::get("viacep.com.br/ws/" . $this->cep . "/json/")->json();
     }
     
     public function render()

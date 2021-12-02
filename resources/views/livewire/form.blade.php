@@ -6,11 +6,11 @@
 
             @if($currentPage === 1)
                 @include('components.step1')
+            @elseif($currentPage === 2)
+                @include('components.step2')
             @endif
 
-            @if($currentPage === 2)
-                @include('components.step2')
-            @endif 
+            <p>{{ var_dump($currentPage) }}</p>
 
             </div>
         </form>
