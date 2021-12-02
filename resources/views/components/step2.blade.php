@@ -1,9 +1,11 @@
 <div class="group-input">
     <div class="input-form">
         <label for="name">Seu CEP</label>
-        <input type="text" placeholder="Seu CEP" name="cep" wire:model="cep" value="{{ old('cep') }}">
+        <input type="text" placeholder="Seu CEP" name="cep" wire:model="cep" wire:keydown.enter="getCep">
     </div>
+
     @if($setCep)
+        <p>{{var_dump($cep, $setCep)}}</p>
         <div class="input-form">
             <label for="cep">Rua</label>
             <input type="text" placeholder="Rua" name="cep" value="{{ $setCep['logradouro'] }}">

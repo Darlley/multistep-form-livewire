@@ -31,9 +31,9 @@ class Form extends Component
     public function goToPreviousPage(){
         $this->currentPage -= 1;
     }
+
     public function getCep(){
-        $response = Http::get("viacep.com.br/ws/" . $this->cep . "/json/");
-        $this->setCep = $response->json(); // Sem ->json não aceita objeto
+        $this->setCep = Http::get("viacep.com.br/ws/" . $this->cep . "/json/")->json();
     }
     
     public function render()
