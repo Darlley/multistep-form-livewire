@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 body{
-    height: 100vh;
     background: #f7fbff;
     font-family: 'Mulish', sans-serif;
 }
@@ -12,16 +11,15 @@ body{
 .app-container{
     margin: 0;
     padding: 0;
-    height: 95vh;
     margin: auto;
 }
 
 .main{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 95%;
     background-color: #eeeeee;
 
 }
@@ -44,7 +42,29 @@ body{
 
     color: #eeeeee;
     animation: sombra 5s ease-in infinite;
+
+    position: relative;
 }
+
+.form-group__step{
+    position: absolute;
+    background-color: #2a2a2a;
+    right: -15px;
+    top: -15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.453);
+    font-weight: bold;
+    padding: 1.5rem;
+}
+.form-group__step.last-step i{
+    color: lime
+}
+
 @keyframes sombra{
     0%{
         box-shadow: 10px 10px 15px #00000031;
@@ -63,12 +83,6 @@ body{
     }
 }
 
-.form-group .group-input{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 .form-group .group-input input{
     width: 100%;
     background-color: #eeeeee;
@@ -80,13 +94,22 @@ body{
 .form-group .group-input .input-form {
     margin: 1rem 0;
 }
-.form-group .group-button-form{
-    margin-top: 2rem;
+
+.step-init{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: max-content;
+}
+.group-button-form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem 0;
 }
 
-button{
-    box-shadow: -2px 2px 0px 0 #ffffff38;
-}
 button:hover{
     transition: all 1s;
     transform: scale(1.025, 1.025);
@@ -94,6 +117,6 @@ button:hover{
 
 @media (min-width: 992px) {
     .form-group{
-        max-width: 400px;
+        width: max-content;
     }
 }

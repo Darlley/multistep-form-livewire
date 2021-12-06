@@ -24,12 +24,15 @@
     @endif
 </div>
 <div class="group-button-form">
-    <button type="button" class="btn btn-light" wire:click="goToPreviousPage">Voltar</button>
+    {{-- <button type="button" class="btn btn-light" wire:click="goToPreviousPage">Voltar</button> --}}
 
-    <button type="button" class="btn btn-primary" wire:loading.attr="disabled" wire:target="goToNextPage" wire:click="goToNextPage">
+    <button type="button" class="btn btn-light" wire:click.prevent="goToPreviousPage">Voltar</button>
+    <button type="button" class="btn btn-primary" wire:click="goToNextPage">Avançar</button>
+
+    {{-- <button type="button" class="btn btn-primary" wire:loading.attr="disabled" wire:target="goToNextPage" wire:click="goToNextPage">
         <div class="spinner-border spinner-border-sm" role="status" wire:loading wire:target="submitForm">
             <span class="visually-hidden">Loading...</span>
         </div>
         Enviar mensagem
-    </button>
+    </button> --}}
 </div>
