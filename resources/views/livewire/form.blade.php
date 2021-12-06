@@ -16,20 +16,27 @@
                         <div class="input-form">
                             <label for="name">Seu nome</label>
                             <input type="text" placeholder="Seu nome" name="name" wire:model="user.nome" value={{ old('name') }}>
+                            @error('user.nome')<span style="color: #dc3545;">{{ $message }}</span>@enderror
                         </div>
                         <div class="input-form">
                             <label for="email">E-mail</label>
                             <input type="email" placeholder="Seu email" name="email" wire:model="user.email" value={{ old('email') }}>
+                            @error('user.email')<span style="color: #dc3545;">{{ $message }}</span>@enderror
                         </div>
                         <div class="input-form">
                             <label for="tel">Telefone</label>
-                            <input type="tel" placeholder="(00) 0 0000-0000" name="tel" wire:model="user.telefone" value={{ old('tel') }}>
+                            <input type="tel" placeholder="00 0 0000-0000" name="tel" wire:model="user.telefone" value={{ old('tel') }}>
+                            @error('user.telefone')<span style="color: #dc3545;">{{ $message }}</span>@enderror
                         </div>
                     </div>
                     <div class="group-button-form">
                         <button type="button" class="btn btn-light" disabled>
                             <i class="bi bi-chevron-left"></i>
                         </button>
+                        {{-- <button type="reset">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                        </button> --}}
+                        
                         <button type="button" class="btn btn-primary" wire:loading.attr="disabled" wire:target="goToNextPage" wire:click="goToNextPage">
                             <div class="spinner-border spinner-border-sm" role="status" wire:loading>
                                 <span class="visually-hidden"></span>
@@ -49,20 +56,20 @@
                     
                         @if($setCep)
                         <div class="input-form">
-                            <label for="cep">Rua</label>
-                            <input type="text" placeholder="Rua" name="cep" value="{{ $setCep['logradouro'] }}">
+                            <label for="rua">Rua</label>
+                            <input type="text" placeholder="Rua" name="rua" value="{{ $setCep['logradouro'] }}">
                         </div>
                         <div class="input-form">
-                            <label for="cep">Bairro</label>
-                            <input type="text" placeholder="Rua" name="bairro" value="{{ $setCep['bairro'] }}">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" placeholder="Bairro" name="bairro" value="{{ $setCep['bairro'] }}">
                         </div>
                         <div class="input-form">
-                            <label for="cep">Localidade</label>
+                            <label for="cidade">Cidade</label>
                             <input type="text" placeholder="Cidade" name="cidade" value="{{ $setCep['localidade'] }}">
                         </div>
                         <div class="input-form">
-                            <label for="cep">UF</label>
-                            <input type="text" placeholder="Cidade" name="cidade" value="{{ $setCep['uf'] }}">
+                            <label for="estado">Estado</label>
+                            <input type="text" placeholder="Estado" name="estado" value="{{ $setCep['uf'] }}">
                         </div>
                         @endif
                     </div>
